@@ -33,6 +33,8 @@ public class Model {
         buffer.put(indices);
         buffer.flip();
 
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, buffer, GL_STATIC_DRAW);
+
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, i_id);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, buffer, GL_STATIC_DRAW);
 
@@ -49,7 +51,6 @@ public class Model {
 
         glBindBuffer(GL_ARRAY_BUFFER, t_id);
         glVertexAttribPointer(1, 2, GL_FLOAT, false, 0, 0);
-
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, i_id);
         glDrawElements(GL_TRIANGLES, draw_count, GL_UNSIGNED_INT, 0);
