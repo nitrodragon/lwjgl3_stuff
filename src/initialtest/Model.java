@@ -45,10 +45,11 @@ public class Model {
         glEnableVertexAttribArray(1);
 
         glBindBuffer(GL_ARRAY_BUFFER, v_id);
-        glVertexPointer(3, GL_FLOAT, 0, 0);
+        glVertexAttribPointer(0, 3, GL_FLOAT, false, 0, 0);
 
         glBindBuffer(GL_ARRAY_BUFFER, t_id);
-        glTexCoordPointer(2, GL_FLOAT, 0, 0);
+        glVertexAttribPointer(1, 2, GL_FLOAT, false, 0, 0);
+
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, i_id);
         glDrawElements(GL_TRIANGLES, draw_count, GL_UNSIGNED_INT, 0);

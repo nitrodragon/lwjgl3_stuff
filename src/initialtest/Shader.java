@@ -35,6 +35,7 @@ public class Shader {
         glAttachShader(program, fs);
 
         glBindAttribLocation(program, 0, "vertices");
+        glBindAttribLocation(program, 1, "textures");
 
         glLinkProgram(program);
         if (glGetProgrami(program, GL_LINK_STATUS) != 1) {
