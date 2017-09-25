@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88d0708c-54d1-4b53-a1e0-c519689046ab" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/256fx256f.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shaders/frag.glsl" afterPath="$PROJECT_DIR$/shaders/frag.glsl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shaders/vertex.glsl" afterPath="$PROJECT_DIR$/shaders/vertex.glsl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/initialtest/Main.java" afterPath="$PROJECT_DIR$/src/initialtest/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/initialtest/Model.java" afterPath="$PROJECT_DIR$/src/initialtest/Model.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -752,7 +747,7 @@
       <workItem from="1506362930136" duration="545000" />
       <workItem from="1506363511169" duration="1048000" />
       <workItem from="1506378963044" duration="1032000" />
-      <workItem from="1506380112614" duration="1734000" />
+      <workItem from="1506380112614" duration="2116000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1506379386916</created>
@@ -768,11 +763,18 @@
       <option name="project" value="LOCAL" />
       <updated>1506379985447</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="End of ep 8">
+      <created>1506381884062</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1506381884062</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22506000" />
+    <option name="totallyTimeSpent" value="22888000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="720" y="0" width="720" height="860" extended-state="0" />
@@ -821,7 +823,8 @@
     </ignored-roots>
     <MESSAGE value="commit" />
     <MESSAGE value="11:26" />
-    <option name="LAST_COMMIT_MESSAGE" value="11:26" />
+    <MESSAGE value="End of ep 8" />
+    <option name="LAST_COMMIT_MESSAGE" value="End of ep 8" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
