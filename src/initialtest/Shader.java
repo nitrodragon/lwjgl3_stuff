@@ -1,9 +1,13 @@
 package initialtest;
 
+import org.joml.Matrix4f;
+import org.lwjgl.BufferUtils;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.FloatBuffer;
 
 import static org.lwjgl.opengl.GL20.*;
 
@@ -35,6 +39,7 @@ public class Shader {
         glAttachShader(program, fs);
 
         glBindAttribLocation(program, 0, "vertices");
+        glBindAttribLocation(program, 1, "textures");
 
         glLinkProgram(program);
         if (glGetProgrami(program, GL_LINK_STATUS) != 1) {
@@ -52,6 +57,15 @@ public class Shader {
         int location = glGetUniformLocation(program, name);
         if (location != -1)
             glUniform1i(location, value);
+    }
+
+    public void setUniform(String name, Matrix4f value) {
+        int location = glGetUniformLocation(program, name);
+        // Allows us to hold in all the4 information regarding translation, dilation, and rotations
+        FloatBuffer buffer = BufferUtils.createFloatBuffer(16);
+        value.get(buffer);
+        if (location != -1)
+            glUniformMatrix4fv(location, false, buffer);
     }
 
     public void bind() {

@@ -28,5 +28,6 @@
 	<classpathentry kind="lib" path="lib/lwjgl-yoga-natives-windows.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-yoga.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl.jar"/>
+	<classpathentry kind="lib" path="lib/joml-1.9.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
