@@ -54,28 +54,55 @@ public class Main {
                 .translate(new Vector3f(100, 0, 0))
                 .scale(128);
 
-        Matrix4f target;
+        Matrix4f target = new Matrix4f();
 
         camera.setPosition(new Vector3f(-100, 0, 0));
 
+        double frame_cap = 1.0 / 60.0;
+
+        double frame_time = 0;
+        int frames = 0;
+
+        double time = Timer.getTime();
+        double unprocessed = 0;
+
         while (!glfwWindowShouldClose(window)) {
-            // EVERY time
-            target = scale;
-            if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GL_TRUE) {
-                glfwSetWindowShouldClose(window, true);
+            boolean can_render = false;
+            double time_2 = Timer.getTime();
+            double passed = time_2 - time;
+            unprocessed += passed; // hasn't been processed yet
+            frame_time += passed;
+            time = time_2;
+
+            while (unprocessed >= frame_cap) {
+                unprocessed -= frame_cap;
+                can_render = true;
+                // EVERY time
+                target = scale;
+                if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GL_TRUE) {
+                    glfwSetWindowShouldClose(window, true);
+                }
+                glfwPollEvents();
+                if (frame_time >= 1.0) {
+                    frame_time =0;
+                    System.out.println("FPS: " + frames);
+                    frames = 0;
+                }
             }
 
-            glfwPollEvents();
+            if (can_render) {
+                glClear(GL_COLOR_BUFFER_BIT);
 
-            glClear(GL_COLOR_BUFFER_BIT);
+                shader.bind();
+                shader.setUniform("sampler", 0);
+                shader.setUniform("projection", camera.getProjection().mul(target));
+                model.render();
+                tex.bind(0);
 
-            shader.bind();
-            shader.setUniform("sampler", 0);
-            shader.setUniform("projection", camera.getProjection().mul(target));
-            tex.bind(0);
-            model.render();
+                glfwSwapBuffers(window);
+                frames++;
+            }
 
-            glfwSwapBuffers(window);
         }
         glfwTerminate();
     }
