@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88d0708c-54d1-4b53-a1e0-c519689046ab" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/initialtest/Camera.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_classpath.xml" afterPath="$PROJECT_DIR$/_classpath.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shaders/vertex.glsl" afterPath="$PROJECT_DIR$/shaders/vertex.glsl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/initialtest/Main.java" afterPath="$PROJECT_DIR$/src/initialtest/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/initialtest/Shader.java" afterPath="$PROJECT_DIR$/src/initialtest/Shader.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,11 +24,34 @@
         <entry file="file://$PROJECT_DIR$/src/initialtest/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="202">
-              <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+              <caret line="54" column="20" lean-forward="true" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Camera.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/initialtest/Camera.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="24" column="37" lean-forward="true" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#397#398#0" expanded="true" />
+                <element signature="e#437#438#0" expanded="true" />
+                <element signature="e#487#488#0" expanded="true" />
+                <element signature="e#530#531#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="256fx256f.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/256fx256f.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -115,6 +136,7 @@
         <option value="$PROJECT_DIR$/_classpath.xml" />
         <option value="$PROJECT_DIR$/src/initialtest/Shader.java" />
         <option value="$PROJECT_DIR$/shaders/vertex.glsl" />
+        <option value="$PROJECT_DIR$/src/initialtest/Camera.java" />
         <option value="$PROJECT_DIR$/src/initialtest/Main.java" />
       </list>
     </option>
@@ -742,7 +764,7 @@
       <workItem from="1506363511169" duration="1048000" />
       <workItem from="1506378963044" duration="1032000" />
       <workItem from="1506380112614" duration="3451000" />
-      <workItem from="1506397733741" duration="2012000" />
+      <workItem from="1506397733741" duration="3543000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1506379386916</created>
@@ -765,11 +787,18 @@
       <option name="project" value="LOCAL" />
       <updated>1506381884062</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="End of Episode 9">
+      <created>1506399923770</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1506399923770</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26235000" />
+    <option name="totallyTimeSpent" value="27766000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="720" y="0" width="720" height="860" extended-state="0" />
@@ -819,7 +848,8 @@
     <MESSAGE value="commit" />
     <MESSAGE value="11:26" />
     <MESSAGE value="End of ep 8" />
-    <option name="LAST_COMMIT_MESSAGE" value="End of ep 8" />
+    <MESSAGE value="End of Episode 9" />
+    <option name="LAST_COMMIT_MESSAGE" value="End of Episode 9" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -832,22 +862,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/initialtest/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shaders/vertex.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shaders/frag.glsl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1217,10 +1231,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/res/256fx256f.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/initialtest/Camera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="24" column="37" lean-forward="true" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
+            <element signature="e#437#438#0" expanded="true" />
+            <element signature="e#487#488#0" expanded="true" />
+            <element signature="e#530#531#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/initialtest/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
-          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <caret line="54" column="20" lean-forward="true" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

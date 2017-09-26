@@ -4,6 +4,7 @@ import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 
 import org.joml.Matrix4f;
+import org.joml.Vector3f;
 import org.lwjgl.opengl.GL;
 
 public class Main {
@@ -22,6 +23,7 @@ public class Main {
         glfwMakeContextCurrent(window);
         GL.createCapabilities();
 
+        Camera camera = new Camera(WIDTH, HEIGHT);
         glEnable(GL_TEXTURE_2D);
 
         float[] vertices = new float[] {
@@ -46,19 +48,19 @@ public class Main {
         Model model = new Model(vertices, texture, indices);
         Shader shader = new Shader("shader");
 
-        Texture tex = new Texture("./res/256fx256f.jpg");
+        Texture tex = new Texture("./res/BigIra.png");
 
-        // Divide by 2 to set origin to 0; center
-        Matrix4f projection = new Matrix4f()
-                .ortho2D(WIDTH / 2, -WIDTH / 2, -HEIGHT / 2, HEIGHT / 2);
-        Matrix4f scale = new Matrix4f().scale(128);
+        Matrix4f scale = new Matrix4f()
+                .translate(new Vector3f(100, 0, 0))
+                .scale(128);
 
-        Matrix4f target = new Matrix4f();
+        Matrix4f target;
 
-        projection.mul(scale, target);
+        camera.setPosition(new Vector3f(-100, 0, 0));
 
         while (!glfwWindowShouldClose(window)) {
-
+            // EVERY time
+            target = scale;
             if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GL_TRUE) {
                 glfwSetWindowShouldClose(window, true);
             }
@@ -69,7 +71,7 @@ public class Main {
 
             shader.bind();
             shader.setUniform("sampler", 0);
-            shader.setUniform("projection", target);
+            shader.setUniform("projection", camera.getProjection().mul(target));
             tex.bind(0);
             model.render();
 
