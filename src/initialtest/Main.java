@@ -8,21 +8,19 @@ import org.joml.Vector3f;
 import org.lwjgl.opengl.GL;
 
 public class Main {
-
-    static int WIDTH = 640;
-    static int HEIGHT = 480;
-
     public Main() {
         if (!glfwInit()) {
             throw new IllegalStateException("GLFW failed to initialize!");
         }
 
         Window window = new Window();
+        window.setSize(1024, 768);
+        window.setFullscreen(true);
         window.createWindow("Game");
 
         GL.createCapabilities();
 
-        Camera camera = new Camera(WIDTH, HEIGHT);
+        Camera camera = new Camera(window.getWidth(), window.getHeight());
         glEnable(GL_TEXTURE_2D);
 
         float[] vertices = new float[] {
@@ -78,9 +76,9 @@ public class Main {
                 can_render = true;
                 // EVERY time
                 target = scale;
-//                if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GL_TRUE) {
-//                    glfwSetWindowShouldClose(window, true);
-//                }
+                if(glfwGetKey(window.getWindow(), GLFW_KEY_ESCAPE) == GL_TRUE) {
+                    glfwSetWindowShouldClose(window.getWindow(), true);
+                }
                 glfwPollEvents();
                 if (frame_time >= 1.0) {
                     frame_time =0;
