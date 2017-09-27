@@ -78,10 +78,10 @@ public class Main {
                 can_render = true;
                 // EVERY time
                 target = scale;
-                if(window.getInput().isKeyDown(GLFW_KEY_ESCAPE)) {
+                if(window.getInput().isKeyPressed(GLFW_KEY_ESCAPE)) {
                     glfwSetWindowShouldClose(window.getWindow(), true);
                 }
-                glfwPollEvents();
+                window.update();
                 if (frame_time >= 1.0) {
                     frame_time = 0;
                     System.out.println("FPS: " + frames);

@@ -52,6 +52,11 @@ public class Window {
         glfwSwapBuffers(window);
     }
 
+    public void update() {
+        input.update();
+        glfwPollEvents();
+    }
+
     public boolean isFullscreen() { return fullscreen; }
     public long getWindow() { return window; }
     public int getWidth() { return width; }
