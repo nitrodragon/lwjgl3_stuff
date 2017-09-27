@@ -37,8 +37,7 @@ public class Window {
 
             glfwShowWindow(window);
         }
-
-            glfwMakeContextCurrent(window);
+        glfwMakeContextCurrent(window);
 
     }
 
@@ -62,6 +61,4 @@ public class Window {
     public void setFullscreen(boolean fullscreen) {
         this.fullscreen = fullscreen;
     }
-
-
 }
