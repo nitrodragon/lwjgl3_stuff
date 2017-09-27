@@ -1,4 +1,4 @@
-package initialtest;
+package nitrodragon.render;
 
 import org.lwjgl.BufferUtils;
 

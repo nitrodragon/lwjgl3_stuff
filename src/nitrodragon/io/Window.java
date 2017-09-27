@@ -1,4 +1,4 @@
-package initialtest;
+package nitrodragon.io;
 
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;

@@ -1,4 +1,4 @@
-package initialtest;
+package nitrodragon.render;
 
 import org.joml.Matrix4f;
 import org.lwjgl.BufferUtils;

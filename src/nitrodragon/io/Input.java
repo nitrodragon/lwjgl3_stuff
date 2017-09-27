@@ -1,4 +1,4 @@
-package initialtest;
+package nitrodragon.io;
 
 import static org.lwjgl.glfw.GLFW.*;
 

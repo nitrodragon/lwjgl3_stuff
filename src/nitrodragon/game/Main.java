@@ -1,8 +1,14 @@
-package initialtest;
+package nitrodragon.game;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 
+import nitrodragon.render.Camera;
+import nitrodragon.render.Model;
+import nitrodragon.render.Shader;
+import nitrodragon.render.Texture;
+import nitrodragon.io.Timer;
+import nitrodragon.io.Window;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.lwjgl.opengl.GL;

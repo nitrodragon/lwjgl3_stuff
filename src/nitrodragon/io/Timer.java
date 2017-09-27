@@ -1,4 +1,4 @@
-package initialtest;
+package nitrodragon.io;
 
 public class Timer {
 
