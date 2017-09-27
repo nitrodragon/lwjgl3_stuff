@@ -33,15 +33,15 @@ public class Main {
          };
 
          float[] texture = new float[] {
-                0,0,
-                1,0,
-                1,1,
-                0,1
+                0, 0,
+                1, 0,
+                1, 1,
+                0, 1
          };
 
          int[] indices = new int[] {
-                0,1,2,
-                2,3,0
+                0, 1, 2,
+                2, 3, 0
          };
 
         Model model = new Model(vertices, texture, indices);
@@ -83,7 +83,7 @@ public class Main {
                 }
                 glfwPollEvents();
                 if (frame_time >= 1.0) {
-                    frame_time =0;
+                    frame_time = 0;
                     System.out.println("FPS: " + frames);
                     frames = 0;
                 }
