@@ -16,8 +16,8 @@ public class Main {
         }
 
         Window window = new Window();
-        window.setSize(1024, 768);
-        window.setFullscreen(true);
+        window.setSize(640, 480);
+        window.setFullscreen(false);
         window.createWindow("Game");
 
         GL.createCapabilities();
@@ -78,7 +78,7 @@ public class Main {
                 can_render = true;
                 // EVERY time
                 target = scale;
-                if(glfwGetKey(window.getWindow(), GLFW_KEY_ESCAPE) == GL_TRUE) {
+                if(window.getInput().isKeyDown(GLFW_KEY_ESCAPE)) {
                     glfwSetWindowShouldClose(window.getWindow(), true);
                 }
                 glfwPollEvents();

@@ -11,6 +11,8 @@ public class Window {
     private int width, height = 0;
     private boolean fullscreen;
 
+    private Input input;
+
     public static void setCallbacks() {
         glfwSetErrorCallback(GLFWErrorCallback.createPrint(System.err));
     }
@@ -39,6 +41,7 @@ public class Window {
         }
         glfwMakeContextCurrent(window);
 
+        input = new Input(window);
     }
 
     public boolean shouldClose() {
@@ -53,6 +56,7 @@ public class Window {
     public long getWindow() { return window; }
     public int getWidth() { return width; }
     public int getHeight() { return height; }
+    public Input getInput() { return input; }
 
     public void setSize(int width, int height) {
         this.width = width;
