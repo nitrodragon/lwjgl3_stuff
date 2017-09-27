@@ -9,6 +9,8 @@ import org.lwjgl.opengl.GL;
 
 public class Main {
     public Main() {
+        Window.setCallbacks();
+
         if (!glfwInit()) {
             throw new IllegalStateException("GLFW failed to initialize!");
         }
