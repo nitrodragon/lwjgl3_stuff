@@ -17,10 +17,9 @@ public class Main {
             throw new IllegalStateException("GLFW failed to initialize!");
         }
 
-        long window = glfwCreateWindow(WIDTH, HEIGHT, "Windows", 0, 0);
+        Window window = new Window();
+        window.createWindow("Game");
 
-        glfwShowWindow(window);
-        glfwMakeContextCurrent(window);
         GL.createCapabilities();
 
         Camera camera = new Camera(WIDTH, HEIGHT);
@@ -66,7 +65,7 @@ public class Main {
         double time = Timer.getTime();
         double unprocessed = 0;
 
-        while (!glfwWindowShouldClose(window)) {
+        while (!window.shouldClose()) {
             boolean can_render = false;
             double time_2 = Timer.getTime();
             double passed = time_2 - time;
@@ -79,9 +78,9 @@ public class Main {
                 can_render = true;
                 // EVERY time
                 target = scale;
-                if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GL_TRUE) {
-                    glfwSetWindowShouldClose(window, true);
-                }
+//                if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GL_TRUE) {
+//                    glfwSetWindowShouldClose(window, true);
+//                }
                 glfwPollEvents();
                 if (frame_time >= 1.0) {
                     frame_time =0;
@@ -99,7 +98,7 @@ public class Main {
                 model.render();
                 tex.bind(0);
 
-                glfwSwapBuffers(window);
+                window.swapBuffers();
                 frames++;
             }
 
