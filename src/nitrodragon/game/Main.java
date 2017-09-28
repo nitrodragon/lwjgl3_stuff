@@ -9,6 +9,7 @@ import nitrodragon.render.Shader;
 import nitrodragon.render.Texture;
 import nitrodragon.io.Timer;
 import nitrodragon.io.Window;
+import nitrodragon.world.Tile;
 import nitrodragon.world.TileRenderer;
 import nitrodragon.world.World;
 import org.joml.Matrix4f;
@@ -61,7 +62,8 @@ public class Main {
 
         World world = new World();
 
-        camera.setPosition(new Vector3f(0, 0, 0));
+        world.setTile(Tile.test_2, 0, 0);
+        world.setTile(Tile.test_2, 63, 63);
 
         double frame_cap = 1.0 / 60.0;
 
@@ -99,6 +101,8 @@ public class Main {
                 if (window.getInput().isKeyDown(GLFW_KEY_S)) {
                     camera.getPosition().sub(new Vector3f(0, -5, 0));
                 }
+
+                world.correctCamera(camera, window);
 
                 window.update();
                 if (frame_time >= 1.0) {
