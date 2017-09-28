@@ -16,10 +16,10 @@ public class TileRenderer {
     public TileRenderer() {
         tile_textures = new HashMap<String, Texture>();
         float[] vertices = new float[] {
-                -0.5f, 0.5f, 0,
-                0.5f, 0.5f, 0,
-                0.5f, -0.5f, 0,
-                -0.5f, -0.5f, 0,
+                -1f, 1f,  0,
+                 1f, 1f,  0,
+                 1f, -1f, 0,
+                -1f, -1f, 0,
         };
 
         float[] texture = new float[] {

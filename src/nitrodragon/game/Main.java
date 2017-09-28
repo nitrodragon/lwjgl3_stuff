@@ -10,6 +10,7 @@ import nitrodragon.render.Texture;
 import nitrodragon.io.Timer;
 import nitrodragon.io.Window;
 import nitrodragon.world.TileRenderer;
+import nitrodragon.world.World;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.lwjgl.opengl.GL;
@@ -58,11 +59,7 @@ public class Main {
 
         Texture tex = new Texture("./res/BigIra.png");
 
-        Matrix4f scale = new Matrix4f()
-                .translate(new Vector3f(0, 0, 0))
-                .scale(16);
-
-        Matrix4f target = new Matrix4f();
+        World world = new World();
 
         camera.setPosition(new Vector3f(0, 0, 0));
 
@@ -86,10 +83,23 @@ public class Main {
                 unprocessed -= frame_cap;
                 can_render = true;
                 // EVERY time
-                target = scale;
                 if(window.getInput().isKeyPressed(GLFW_KEY_ESCAPE)) {
                     glfwSetWindowShouldClose(window.getWindow(), true);
                 }
+
+                if (window.getInput().isKeyDown(GLFW_KEY_A)) {
+                    camera.getPosition().sub(new Vector3f(-5, 0, 0));
+                }
+                if (window.getInput().isKeyDown(GLFW_KEY_D)) {
+                    camera.getPosition().sub(new Vector3f(5, 0, 0));
+                }
+                if (window.getInput().isKeyDown(GLFW_KEY_W)) {
+                    camera.getPosition().sub(new Vector3f(0, 5, 0));
+                }
+                if (window.getInput().isKeyDown(GLFW_KEY_S)) {
+                    camera.getPosition().sub(new Vector3f(0, -5, 0));
+                }
+
                 window.update();
                 if (frame_time >= 1.0) {
                     frame_time = 0;
@@ -107,10 +117,7 @@ public class Main {
                 model.render();
                 tex.bind(0);*/
 
-                for (int i = 0; i < 8; i++) {
-                    for (int j = 0; j < 4; j++)
-                        tiles.renderTile( (byte)0, i, j, shader, scale, camera);
-                }
+                world.render(tiles, shader, camera);
 
                 window.swapBuffers();
                 frames++;
