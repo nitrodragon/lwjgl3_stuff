@@ -9,6 +9,7 @@ import nitrodragon.render.Shader;
 import nitrodragon.render.Texture;
 import nitrodragon.io.Timer;
 import nitrodragon.io.Window;
+import nitrodragon.world.TileRenderer;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.lwjgl.opengl.GL;
@@ -31,7 +32,9 @@ public class Main {
         Camera camera = new Camera(window.getWidth(), window.getHeight());
         glEnable(GL_TEXTURE_2D);
 
-        float[] vertices = new float[] {
+        TileRenderer tiles = new TileRenderer();
+
+        /*float[] vertices = new float[] {
                 -0.5f, 0.5f, 0,
                 0.5f, 0.5f, 0,
                 0.5f, -0.5f, 0,
@@ -50,18 +53,18 @@ public class Main {
                 2, 3, 0
          };
 
-        Model model = new Model(vertices, texture, indices);
+        Model model = new Model(vertices, texture, indices);*/
         Shader shader = new Shader("shader");
 
         Texture tex = new Texture("./res/BigIra.png");
 
         Matrix4f scale = new Matrix4f()
-                .translate(new Vector3f(100, 0, 0))
-                .scale(128);
+                .translate(new Vector3f(0, 0, 0))
+                .scale(16);
 
         Matrix4f target = new Matrix4f();
 
-        camera.setPosition(new Vector3f(-100, 0, 0));
+        camera.setPosition(new Vector3f(0, 0, 0));
 
         double frame_cap = 1.0 / 60.0;
 
@@ -98,11 +101,16 @@ public class Main {
             if (can_render) {
                 glClear(GL_COLOR_BUFFER_BIT);
 
-                shader.bind();
+                /*shader.bind();
                 shader.setUniform("sampler", 0);
                 shader.setUniform("projection", camera.getProjection().mul(target));
                 model.render();
-                tex.bind(0);
+                tex.bind(0);*/
+
+                for (int i = 0; i < 8; i++) {
+                    for (int j = 0; j < 4; j++)
+                        tiles.renderTile( (byte)0, i, j, shader, scale, camera);
+                }
 
                 window.swapBuffers();
                 frames++;
