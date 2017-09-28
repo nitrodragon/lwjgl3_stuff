@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88d0708c-54d1-4b53-a1e0-c519689046ab" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/nitrodragon/world/World.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nitrodragon/game/Main.java" afterPath="$PROJECT_DIR$/src/nitrodragon/game/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nitrodragon/world/TileRenderer.java" afterPath="$PROJECT_DIR$/src/nitrodragon/world/TileRenderer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -985,15 +982,21 @@
       <option name="project" value="LOCAL" />
       <updated>1506563575766</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="End of Episode 19—eyyyyy! Our world renders and moves!">
+      <created>1506572075751</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1506572075751</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43351000" />
+    <option name="totallyTimeSpent" value="43393000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="720" y="0" width="720" height="860" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1069,7 +1072,8 @@
     <MESSAGE value="Gigantic freakin' refractor" />
     <MESSAGE value="End of Ep 17" />
     <MESSAGE value="End of Ep 18" />
-    <option name="LAST_COMMIT_MESSAGE" value="End of Ep 18" />
+    <MESSAGE value="End of Episode 19—eyyyyy! Our world renders and moves!" />
+    <option name="LAST_COMMIT_MESSAGE" value="End of Episode 19—eyyyyy! Our world renders and moves!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
