@@ -59,6 +59,14 @@ public class Shader {
             glUniform1i(location, value);
     }
 
+    protected void finalize() {
+        glDetachShader(program, vs);
+        glDetachShader(program, fs);
+        glDeleteShader(vs);
+        glDeleteShader(fs);
+        glDeleteProgram(program);
+    }
+
     public void setUniform(String name, Matrix4f value) {
         int location = glGetUniformLocation(program, name);
         // Allows us to hold in all the4 information regarding translation, dilation, and rotations

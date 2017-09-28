@@ -121,7 +121,7 @@ public class Main {
                 model.render();
                 tex.bind(0);*/
 
-                world.render(tiles, shader, camera);
+                world.render(tiles, shader, camera, window);
 
                 window.swapBuffers();
                 frames++;
