@@ -21,7 +21,7 @@ public class Main {
         Window.setCallbacks();
 
         if (!glfwInit()) {
-            throw new IllegalStateException("GLFW failed to initialize!");
+            throw new IllegalStateException("GLFW failed to initialize.");
         }
 
         Window window = new Window();
