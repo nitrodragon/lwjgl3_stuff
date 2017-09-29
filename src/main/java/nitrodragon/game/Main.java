@@ -3,6 +3,7 @@ package nitrodragon.game;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 
+import nitrodragon.entity.Player;
 import nitrodragon.render.Camera;
 import nitrodragon.render.Model;
 import nitrodragon.render.Shader;
@@ -63,6 +64,8 @@ public class Main {
 
         World world = new World();
 
+        Player player = new Player();
+
         world.setTile(Tile.test_2, 0, 0);
         world.setTile(Tile.test_2, 63, 63);
 
@@ -85,23 +88,12 @@ public class Main {
             while (unprocessed >= frame_cap) {
                 unprocessed -= frame_cap;
                 can_render = true;
-                // EVERY time
+
                 if(window.getInput().isKeyPressed(GLFW_KEY_ESCAPE)) {
                     glfwSetWindowShouldClose(window.getWindow(), true);
                 }
 
-                if (window.getInput().isKeyDown(GLFW_KEY_A)) {
-                    camera.getPosition().sub(new Vector3f(-5, 0, 0));
-                }
-                if (window.getInput().isKeyDown(GLFW_KEY_D)) {
-                    camera.getPosition().sub(new Vector3f(5, 0, 0));
-                }
-                if (window.getInput().isKeyDown(GLFW_KEY_W)) {
-                    camera.getPosition().sub(new Vector3f(0, 5, 0));
-                }
-                if (window.getInput().isKeyDown(GLFW_KEY_S)) {
-                    camera.getPosition().sub(new Vector3f(0, -5, 0));
-                }
+                player.update((float) frame_cap, window, camera, world);
 
                 world.correctCamera(camera, window);
 
@@ -123,6 +115,8 @@ public class Main {
                 tex.bind(0);*/
 
                 world.render(tiles, shader, camera, window);
+
+                player.render(shader, camera);
 
                 window.swapBuffers();
                 frames++;
