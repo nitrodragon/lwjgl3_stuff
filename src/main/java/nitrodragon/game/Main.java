@@ -56,9 +56,10 @@ public class Main {
          };
 
         Model model = new Model(vertices, texture, indices);*/
+
         Shader shader = new Shader("shader");
 
-        Texture tex = new Texture("./res/BigIra.png");
+        Texture tex = new Texture("BigIra.png");
 
         World world = new World();
 

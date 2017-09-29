@@ -7,6 +7,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.FloatBuffer;
 
 import static org.lwjgl.opengl.GL20.*;
@@ -84,14 +86,16 @@ public class Shader {
         StringBuilder stringBuilder = new StringBuilder();
         BufferedReader br;
         try {
-            br = new BufferedReader(new FileReader(new File("./shaders/" + filename)));
+            URI filePath = getClass().getResource("/shaders/" + filename).toURI();
+            br = new BufferedReader(new FileReader(new File(filePath)));
             String line;
-            while((line = br.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
                 stringBuilder.append(line);
                 stringBuilder.append("\n");
             }
             br.close();
-        } catch (IOException e) {
+        }
+        catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }
         return stringBuilder.toString();

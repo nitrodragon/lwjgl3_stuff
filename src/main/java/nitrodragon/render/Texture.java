@@ -6,6 +6,8 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.ByteBuffer;
 
 import static org.lwjgl.opengl.GL11.*;
@@ -17,14 +19,15 @@ public class Texture {
     private int height;
 
     public Texture(String filename) {
-        BufferedImage bi;
+        BufferedImage bufferedImage;
         try {
-            bi = ImageIO.read(new File("./res/"+filename));
-            width = bi.getWidth();
-            height = bi.getHeight();
+            URI file = getClass().getResource("/textures/" + filename).toURI();
+            bufferedImage = ImageIO.read(new File(file));
+            width = bufferedImage.getWidth();
+            height = bufferedImage.getHeight();
 
             int[] pixels_raw;
-            pixels_raw = bi.getRGB(0, 0, width, height, null, 0, width);
+            pixels_raw = bufferedImage.getRGB(0, 0, width, height, null, 0, width);
 
             ByteBuffer pixels = BufferUtils.createByteBuffer(width * height * 4);
 
@@ -50,7 +53,7 @@ public class Texture {
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
 
 
-        } catch (IOException e) {
+        } catch (IOException |URISyntaxException e) {
             e.printStackTrace();
         }
     }
