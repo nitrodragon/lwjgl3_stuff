@@ -58,8 +58,8 @@ public class Texture {
         }
     }
 
+    @Override
     protected void finalize() throws Throwable {
-        glDeleteTextures(id);
         super.finalize();
     }
 
