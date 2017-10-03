@@ -1,10 +1,7 @@
 package nitrodragon.entity;
 
 import nitrodragon.io.Window;
-import nitrodragon.render.Camera;
-import nitrodragon.render.Model;
-import nitrodragon.render.Shader;
-import nitrodragon.render.Texture;
+import nitrodragon.render.*;
 import nitrodragon.world.World;
 import org.joml.Vector3f;
 
@@ -12,7 +9,8 @@ import static org.lwjgl.glfw.GLFW.*;
 
 public class Player {
     private Model model;
-    private Texture texture;
+    //private Texture texture;
+    private Animation animation;
     private Transform transform;
 
 
@@ -37,7 +35,7 @@ public class Player {
                 2, 3, 0
         };
         model = new Model(vertices, texture, indices);
-        this.texture = new Texture("wayne.png");
+        this.animation = new Animation(5, 15, "");
 
         transform = new Transform();
         transform.scale = new Vector3f(16, 16, 1);
@@ -63,7 +61,7 @@ public class Player {
         shader.bind();
         shader.setUniform("sampler", 0);
         shader.setUniform("projection", transform.getProjection(camera.getProjection()));
-        texture.bind(0);
+        animation.bind(0);
         model.render();
     }
 }
