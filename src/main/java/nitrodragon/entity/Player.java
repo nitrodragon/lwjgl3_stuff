@@ -1,14 +1,18 @@
 package nitrodragon.entity;
 
+import nitrodragon.collision.AABB;
+import nitrodragon.collision.Collision;
 import nitrodragon.io.Window;
 import nitrodragon.render.*;
 import nitrodragon.world.World;
+import org.joml.Vector2f;
 import org.joml.Vector3f;
 
 import static org.lwjgl.glfw.GLFW.*;
 
 public class Player {
     private Model model;
+    private AABB hitbox;
     //private Texture texture;
     private Animation animation;
     private Transform transform;
@@ -39,23 +43,81 @@ public class Player {
 
         transform = new Transform();
         transform.scale = new Vector3f(16, 16, 1);
+
+        hitbox = new AABB(new Vector2f(transform.pos.x, transform.pos.y), new Vector2f(1, 1));
     }
 
     public void update(float delta, Window window, Camera camera, World world) {
-        if (window.getInput().isKeyDown(GLFW_KEY_A)) {
+        if (window.getInput().isKeyDown(GLFW_KEY_LEFT)) {
             transform.pos.add(new Vector3f(-10*delta, 0, 0));
         }
-        if (window.getInput().isKeyDown(GLFW_KEY_D)) {
+        if (window.getInput().isKeyDown(GLFW_KEY_RIGHT)) {
             transform.pos.add(new Vector3f(10*delta, 0, 0));
         }
-        if (window.getInput().isKeyDown(GLFW_KEY_W)) {
+        if (window.getInput().isKeyDown(GLFW_KEY_UP)) {
             transform.pos.add(new Vector3f(0, 10*delta, 0));
         }
-        if (window.getInput().isKeyDown(GLFW_KEY_S)) {
+        if (window.getInput().isKeyDown(GLFW_KEY_DOWN)) {
             transform.pos.add(new Vector3f(0, -10*delta, 0));
         }
 
-        camera.setPosition(transform.pos.mul(-world.getScale(), new Vector3f()));
+        hitbox.getCenter().set(transform.pos.x, transform.pos.y);
+
+        AABB[] boxes = new AABB[25];
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                boxes[i + j * 5] = world.getTileBoundingBox(
+                        (int) (((transform.pos.x / 2) + 0.5f) - (5/2)) + i,
+                        (int) (((-transform.pos.y / 2) + 0.5f) - (5/2)) + j
+                );
+            }
+        }
+
+        AABB box = null;
+        for (AABB selected : boxes) {
+            if (selected != null) {
+                if (box == null) {
+                    box = selected;
+                }
+                Vector2f length1 = box.getCenter().sub(transform.pos.x, transform.pos.y, new Vector2f());
+                Vector2f length2 = selected.getCenter().sub(transform.pos.x, transform.pos.y, new Vector2f());
+
+                // Don't want to waste CPU power to find length's sqrt
+                if (length1.lengthSquared() > length2.lengthSquared()) {
+                    box = selected;
+                }
+            }
+        }
+        if (box != null) {
+            Collision data = hitbox.getCollision(box);
+            if (data.isIntersecting) {
+                hitbox.correctPosition(box, data);
+                transform.pos.set(hitbox.getCenter(), 0);
+            }
+
+            for (int i = 0; i < boxes.length; i++) {
+                if (boxes[i] != null) {
+                    if (box == null) {
+                        box = boxes[i];
+                    }
+                    Vector2f length1 = box.getCenter().sub(transform.pos.x, transform.pos.y, new Vector2f());
+                    Vector2f length2 = boxes[i].getCenter().sub(transform.pos.x, transform.pos.y, new Vector2f());
+
+                    if(length1.lengthSquared() > length2.lengthSquared()) {
+                        box = boxes[i];
+                    }
+                }
+            }
+            if (box != null) {
+                data = hitbox.getCollision(box);
+                if (data.isIntersecting) {
+                    hitbox.correctPosition(box, data);
+                    transform.pos.set(hitbox.getCenter(), 0);
+                }
+            }
+        }
+        camera.getPosition().lerp(transform.pos.mul(-world.getScale(), new Vector3f()), 0.2f);
+        //camera.setPosition(transform.pos.mul(-world.getScale(), new Vector3f()));
     }
     public void render(Shader shader, Camera camera) {
         shader.bind();

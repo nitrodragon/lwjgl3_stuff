@@ -1,14 +1,17 @@
 package nitrodragon.world;
 
+import nitrodragon.collision.AABB;
 import nitrodragon.io.Window;
 import nitrodragon.render.Camera;
 import nitrodragon.render.Shader;
 import org.joml.Matrix4f;
+import org.joml.Vector2f;
 import org.joml.Vector3f;
 
 public class World {
     private final int view = 24;
     private byte tiles[];
+    private AABB[] bounding_boxes;
     private int width;
     private int height;
     private int scale;
@@ -19,7 +22,9 @@ public class World {
         width = 64;
         height = 64;
         scale = 16;
+
         tiles = new byte[width * height];
+        bounding_boxes = new AABB[width * height];
 
         world = new Matrix4f().setTranslation(new Vector3f(0));
         world.scale(scale);
@@ -61,10 +66,22 @@ public class World {
 
     public void setTile(Tile tile, int x, int y) {
         tiles[x + y * width] = tile.getId();
+        if (tile.isSolid()) {
+            bounding_boxes[x + y * width] = new AABB(new Vector2f(x*2, -y*2), new Vector2f(1, 1));
+        } else {
+            bounding_boxes[x + y * width] = null;
+        }
     }
     public Tile getTile(int x, int y) {
         try {
             return Tile.tiles[tiles[x + y * width]];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return null;
+        }
+    }
+    public AABB getTileBoundingBox(int x, int y) {
+        try {
+            return bounding_boxes[x + y * width];
         } catch (ArrayIndexOutOfBoundsException e) {
             return null;
         }

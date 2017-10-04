@@ -4,17 +4,9 @@ import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 
 import nitrodragon.entity.Player;
-import nitrodragon.render.Camera;
-import nitrodragon.render.Model;
-import nitrodragon.render.Shader;
-import nitrodragon.render.Texture;
-import nitrodragon.io.Timer;
-import nitrodragon.io.Window;
-import nitrodragon.world.Tile;
-import nitrodragon.world.TileRenderer;
-import nitrodragon.world.World;
-import org.joml.Matrix4f;
-import org.joml.Vector3f;
+import nitrodragon.render.*;
+import nitrodragon.io.*;
+import nitrodragon.world.*;
 import org.lwjgl.opengl.GL;
 
 public class Main {
@@ -37,37 +29,17 @@ public class Main {
 
         TileRenderer tiles = new TileRenderer();
 
-        /*float[] vertices = new float[] {
-                -0.5f, 0.5f, 0,
-                0.5f, 0.5f, 0,
-                0.5f, -0.5f, 0,
-                -0.5f, -0.5f, 0,
-         };
-
-         float[] texture = new float[] {
-                0, 0,
-                1, 0,
-                1, 1,
-                0, 1
-         };
-
-         int[] indices = new int[] {
-                0, 1, 2,
-                2, 3, 0
-         };
-
-        Model model = new Model(vertices, texture, indices);*/
-
         Shader shader = new Shader("shader");
 
-        Texture tex = new Texture("BigIra.png");
+        //Texture tex = new Texture("BigIra.png");
 
         World world = new World();
 
         Player player = new Player();
 
-        world.setTile(Tile.test_2, 0, 0);
-        world.setTile(Tile.test_2, 63, 63);
+        world.setTile(Tile.test_2, 5, 0);
+        world.setTile(Tile.test_2, 6, 0);
+        world.setTile(Tile.test_2, 6, 1);
 
         double frame_cap = 1.0 / 60.0;
 
