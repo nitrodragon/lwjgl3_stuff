@@ -33,13 +33,9 @@ public class Main {
 
         //Texture tex = new Texture("BigIra.png");
 
-        World world = new World();
+        World world = new World("test_level");
 
         Player player = new Player();
-
-        world.setTile(Tile.test_2, 5, 0);
-        world.setTile(Tile.test_2, 6, 0);
-        world.setTile(Tile.test_2, 6, 1);
 
         double frame_cap = 1.0 / 60.0;
 
