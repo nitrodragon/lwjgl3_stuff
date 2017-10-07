@@ -3,7 +3,9 @@ package nitrodragon.game;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 
+import nitrodragon.entity.Entity;
 import nitrodragon.entity.Player;
+import nitrodragon.entity.Transform;
 import nitrodragon.render.*;
 import nitrodragon.io.*;
 import nitrodragon.world.*;
@@ -29,13 +31,13 @@ public class Main {
 
         TileRenderer tiles = new TileRenderer();
 
-        Shader shader = new Shader("shader");
+        Entity.initModel();
 
-        //Texture tex = new Texture("BigIra.png");
+        Shader shader = new Shader("shader");
 
         World world = new World("test_level");
 
-        Player player = new Player();
+        Player player = new Player(new Transform());
 
         double frame_cap = 1.0 / 60.0;
 
@@ -84,13 +86,16 @@ public class Main {
 
                 world.render(tiles, shader, camera, window);
 
-                player.render(shader, camera);
+                player.render(shader, camera, world);
 
                 window.swapBuffers();
                 frames++;
             }
 
         }
+
+        Entity.deleteAsset();
+
         glfwTerminate();
     }
 

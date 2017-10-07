@@ -74,6 +74,8 @@ import java.io.IOException;
             world.scale(scale);
         }
 
+        public Matrix4f getWorldMatrix() { return world; }
+
         public void render(TileRenderer render, Shader shader, Camera cam, Window window) {
             int posX = ((int)cam.getPosition().x + (window.getWidth()/2)) / (scale * 2);
             int posY = ((int)cam.getPosition().y - (window.getHeight()/2)) / (scale * 2);
