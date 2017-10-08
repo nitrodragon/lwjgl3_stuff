@@ -14,12 +14,12 @@ import org.joml.Vector3f;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-public class Entity {
-    private static Model model;
-    private AABB hitbox;
+public abstract class Entity {
+    protected static Model model;
+    protected AABB hitbox;
     //private Texture texture;
-    private Animation animation;
-    private Transform transform;
+    protected Animation animation;
+    protected Transform transform;
 
 
     public Entity(Animation animation, Transform transform) {
@@ -34,8 +34,7 @@ public class Entity {
         hitbox.getCenter().set(transform.pos.x, transform.pos.y);
     }
 
-    public void update(float delta, Window window, Camera camera, World world) {
-
+    public void collideWithTiles(World world) {
         AABB[] boxes = new AABB[25];
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
@@ -89,9 +88,10 @@ public class Entity {
                 }
             }
         }
-        camera.getPosition().lerp(transform.pos.mul(-world.getScale(), new Vector3f()), 0.05f);
-        //camera.setPosition(transform.pos.mul(-world.getScale(), new Vector3f()));
     }
+
+    public abstract void update(float delta, Window window, Camera camera, World world);
+
     public void render(Shader shader, Camera camera, World world) {
         Matrix4f target = camera.getProjection();
         target.mul(world.getWorldMatrix());

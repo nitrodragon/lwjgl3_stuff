@@ -32,7 +32,7 @@ public class Player extends Entity {
         }
         move(movement);
 
-        super.update(delta, window, camera, world);
+        camera.getPosition().lerp(transform.pos.mul(-world.getScale(), new Vector3f()), 0.05f);
     }
 
 }

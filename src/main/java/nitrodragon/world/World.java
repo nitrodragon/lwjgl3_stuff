@@ -1,7 +1,11 @@
 package nitrodragon.world;
 
 import nitrodragon.collision.AABB;
+import nitrodragon.entity.Entity;
+import nitrodragon.entity.Player;
+import nitrodragon.entity.Transform;
 import nitrodragon.io.Window;
+import nitrodragon.render.Animation;
 import nitrodragon.render.Camera;
 import nitrodragon.render.Shader;
 import org.joml.Matrix4f;
@@ -12,11 +16,14 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-    public class World {
+public class World {
         private final int view = 24;
         private byte[] tiles;
         private AABB[] bounding_boxes;
+        private List<Entity> entities;
         private int width;
         private int height;
         private int scale;
@@ -39,7 +46,9 @@ import java.io.IOException;
 
                 tiles = new byte[width * height];
                 bounding_boxes = new AABB[width * height];
+                entities = new ArrayList<Entity>();
 
+                // Level Loader
                 for(int y = 0; y < height; y++) {
                     for(int x = 0; x < width; x++) {
                         int red = (colorTileSheet[x + y * width] >> 16) & 0xFF;
@@ -56,6 +65,19 @@ import java.io.IOException;
                     }
                 }
 
+                //TODO
+                entities.add(new Player(new Transform()));
+
+                Transform t = new Transform();
+                t.pos.x = 0;
+                t.pos.y = -4;
+
+                entities.add(new Entity(new Animation(1, 1, ""), t) {
+                    @Override
+                    public void update(float delta, Window window, Camera camera, World world){
+                        move(new Vector2f(5*delta, 0));
+                    }
+                });
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -87,7 +109,19 @@ import java.io.IOException;
                         render.renderTile(t, i - posX, -j - posY, shader, world, cam);
                 }
             }
+            // Render each entity
+            for (Entity entity: entities) {
+                entity.render(shader, cam, this);
+            }
+        }
 
+        public void update(float delta, Window window, Camera camera) {
+            for (Entity entity: entities) {
+                entity.update(delta, window, camera, this);
+            }
+            for (Entity entity : entities) {
+                entity.collideWithTiles(this);
+            }
         }
 
         public void correctCamera(Camera camera, Window window) {
