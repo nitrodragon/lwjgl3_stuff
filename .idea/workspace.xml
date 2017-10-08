@@ -4,9 +4,6 @@
     <list default="true" id="50e52a71-ebc9-4a5f-acf8-38f9e86965ed" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nitrodragon/entity/Entity.java" afterPath="$PROJECT_DIR$/src/main/java/nitrodragon/entity/Entity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nitrodragon/entity/Player.java" afterPath="$PROJECT_DIR$/src/main/java/nitrodragon/entity/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nitrodragon/entity/Transform.java" afterPath="$PROJECT_DIR$/src/main/java/nitrodragon/entity/Transform.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nitrodragon/game/Main.java" afterPath="$PROJECT_DIR$/src/main/java/nitrodragon/game/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nitrodragon/world/World.java" afterPath="$PROJECT_DIR$/src/main/java/nitrodragon/world/World.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -80,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Entity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Entity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/nitrodragon/entity/Entity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="71" column="21" lean-forward="true" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="21" />
+            <state relative-caret-position="205">
+              <caret line="121" column="24" lean-forward="true" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4216#4217#0" expanded="true" />
@@ -104,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="World.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="World.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/nitrodragon/world/World.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="67" column="22" lean-forward="true" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
+            <state relative-caret-position="429">
+              <caret line="123" column="34" lean-forward="false" selection-start-line="123" selection-start-column="34" selection-end-line="123" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -167,9 +164,9 @@
         <option value="$PROJECT_DIR$/src/main/java/nitrodragon/world/Tile.java" />
         <option value="$PROJECT_DIR$/src/main/java/nitrodragon/entity/Transform.java" />
         <option value="$PROJECT_DIR$/src/main/java/nitrodragon/game/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/nitrodragon/entity/Entity.java" />
         <option value="$PROJECT_DIR$/src/main/java/nitrodragon/entity/Player.java" />
         <option value="$PROJECT_DIR$/src/main/java/nitrodragon/world/World.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nitrodragon/entity/Entity.java" />
       </list>
     </option>
   </component>
@@ -1021,7 +1018,7 @@
       <workItem from="1506747762365" duration="4166000" />
       <workItem from="1506996746869" duration="5264000" />
       <workItem from="1507087459634" duration="4165000" />
-      <workItem from="1507178669043" duration="10073000" />
+      <workItem from="1507178669043" duration="10901000" />
     </task>
     <task id="LOCAL-00001" summary="Init Commit">
       <created>1506642720129</created>
@@ -1100,11 +1097,18 @@
       <option name="project" value="LOCAL" />
       <updated>1507397487627</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Entities are better handled&#10;&#10;Thank you, World class">
+      <created>1507444578557</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1507444578557</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28442000" />
+    <option name="totallyTimeSpent" value="29270000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="720" y="0" width="720" height="860" extended-state="0" />
@@ -1120,7 +1124,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288948" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16644473" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15978695" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1158,7 +1162,8 @@
     <MESSAGE value="End of Ep 25&#10;&#10;&#10;Level-loading is far more efficient." />
     <MESSAGE value="Added Entity class&#10;&#10;The player and other entities are handled far better than before." />
     <MESSAGE value="Fixed scaling&#10;&#10;Bounding Boxes should work regardless of size now." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed scaling&#10;&#10;Bounding Boxes should work regardless of size now." />
+    <MESSAGE value="Entities are better handled&#10;&#10;Thank you, World class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Entities are better handled&#10;&#10;Thank you, World class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1594,24 +1599,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nitrodragon/entity/Entity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nitrodragon/world/World.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="71" column="21" lean-forward="true" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="21" />
+        <state relative-caret-position="429">
+          <caret line="123" column="34" lean-forward="false" selection-start-line="123" selection-start-column="34" selection-end-line="123" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4216#4217#0" expanded="true" />
-            <element signature="e#4244#4245#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nitrodragon/world/World.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nitrodragon/entity/Entity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="67" column="22" lean-forward="true" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
+        <state relative-caret-position="205">
+          <caret line="121" column="24" lean-forward="true" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4216#4217#0" expanded="true" />
+            <element signature="e#4244#4245#0" expanded="true" />
           </folding>
         </state>
       </provider>
