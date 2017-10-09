@@ -15,19 +15,32 @@ import org.joml.Vector3f;
 import static org.lwjgl.glfw.GLFW.*;
 
 public abstract class Entity {
-    protected static Model model;
+    private static Model model;
     protected AABB hitbox;
     //private Texture texture;
-    protected Animation animation;
+    protected Animation[] animations;
+    private int use_animation;
+
     protected Transform transform;
 
 
-    public Entity(Animation animation, Transform transform) {
-        this.animation = animation;
+    public Entity(int max_animations, Transform transform) {
+        this.animations = new Animation[max_animations];
 
         this.transform = transform;
+        this.use_animation = 0;
+
         hitbox = new AABB(new Vector2f(transform.pos.x, transform.pos.y), new Vector2f(transform.scale.x, transform.scale.y));
     }
+
+    protected void setAnimation(int index, Animation animation) {
+        animations[index] = animation;
+    }
+
+    public void useAnimation(int index) {
+        this.use_animation = index;
+    }
+
     public void move(Vector2f direction) {
         transform.pos.add(new Vector3f(direction, 0));
 
@@ -99,7 +112,7 @@ public abstract class Entity {
         shader.bind();
         shader.setUniform("sampler", 0);
         shader.setUniform("projection", transform.getProjection(target));
-        animation.bind(0);
+        animations[use_animation].bind(0);
         model.render();
     }
 

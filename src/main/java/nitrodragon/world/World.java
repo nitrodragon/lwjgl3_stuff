@@ -68,17 +68,6 @@ public class World {
                 //TODO
                 entities.add(new Player(new Transform()));
 
-                Transform t = new Transform();
-                t.pos.x = 0;
-                t.pos.y = -4;
-
-                entities.add(new Entity(new Animation(1, 1, ""), t) {
-                    @Override
-                    public void update(float delta, Window window, Camera camera, World world){
-                        move(new Vector2f(5*delta, 0));
-                    }
-                });
-
             } catch (IOException e) {
                 e.printStackTrace();
             }

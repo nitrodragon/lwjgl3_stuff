@@ -11,8 +11,13 @@ import org.joml.Vector3f;
 import static org.lwjgl.glfw.GLFW.*;
 
 public class Player extends Entity {
+    public static final int ANIM_IDLE = 0;
+    public static final int ANIM_WALKING = 1;
+    public static final int ANIM_SIZE = 2;
     public Player(Transform transform) {
-        super(new Animation(5, 15, ""), transform);
+        super(ANIM_SIZE, transform);
+        setAnimation(ANIM_IDLE, new Animation(1, 2, "player/idle"));
+        setAnimation(ANIM_WALKING, new Animation(4, 2, "player/walking"));
     }
 
     @Override
@@ -31,6 +36,12 @@ public class Player extends Entity {
             movement.add(0, -10 * delta);
         }
         move(movement);
+
+        if(movement.x != 0|| movement.y != 0) {
+            useAnimation(ANIM_WALKING);
+        } else {
+            useAnimation(ANIM_IDLE);
+        }
 
         camera.getPosition().lerp(transform.pos.mul(-world.getScale(), new Vector3f()), 0.05f);
     }
